@@ -55,7 +55,6 @@ int main(){
 void push(int buf[], struct STACK* st,int j){
 
     st->buf[st->top] = buf[j];
-    st->top++;
     printf("+\n");
 }
 void pop(int test[], struct STACK* st,int i){
@@ -64,4 +63,7 @@ void pop(int test[], struct STACK* st,int i){
     test[i] = st->buf[st->top];
     st->buf[st->top] = 0;
     printf("-\n");
+
+
+    
 }
