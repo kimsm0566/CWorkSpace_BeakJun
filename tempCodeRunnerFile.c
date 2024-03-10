@@ -1,2 +1,2 @@
-
-    printf("+\n");
+_buf, &stack, cnt);
+                if (sky_buf[j] != gro

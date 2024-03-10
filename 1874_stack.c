@@ -6,64 +6,94 @@ struct STACK{
     int buf[MAXBUF];
     int top;
 };
+struct CHAR_STACK{
+    char buf[MAXBUF];
+    int top;
+};
 
-void push(int[], struct STACK*,int);
-void pop(int[], struct STACK*,int);
+void push(struct CHAR_STACK*, struct STACK *, struct STACK*);
+void pop(struct CHAR_STACK*, struct STACK*, struct STACK*);
+void delete_arr(int sky[]);
 
 int main(){
 
     int n;
-    int buf[MAXBUF];
-    int result_buf[MAXBUF];
-    int test_buf[MAXBUF]={0};
-    char plus_mainus[MAXBUF] = {0};
+    int ground_buf[MAXBUF];
+
+    struct STACK stack;
+    struct STACK test;
+    struct STACK sky;
+    struct CHAR_STACK plus_mainus;
+    stack.top = 0;
+    test.top = 0;
+    sky.top =0;
+    plus_mainus.top =0;
 
     scanf("%d",&n);
-    struct STACK stack;
 
     for (int i=1;i<=n;i++){ //버퍼에 순서대로 넣기
-        buf[i-1] = i;
+        sky.buf[i-1] = i;
+        sky.buf[i] = 0;
     }
-    stack.top = 0;
+    
+
     for (int i=0;i<n;i++){ //목표 수열 입력받기
-        scanf("%d",&result_buf[i]);
+        scanf("%d",&ground_buf[i]);
+        ground_buf[i+1] = 0;
     }
+    push(&plus_mainus, &sky, &stack);
+    for (int i=0;i<n;i++){//4
 
-    for (int i=0;i<n;i++ ){
-        if (result_buf[i] < result_buf[i-1]){
-            for (int j=0;stack.buf[j]!='\0';j++){
-                if (result_buf[i] == stack.buf[j]){
-                    pop(test_buf,&stack,i);
-                    break;
+        if (ground_buf[i-1] < ground_buf[i]){
+            for (int j=0;sky.buf[j-1] != ground_buf[i];j++){
+                
+                if (stack.buf[stack.top-1] == ground_buf[i]){
+                    pop(&plus_mainus, &test,&stack);
                 }
+                else if(stack.top != 8) {
+                    push(&plus_mainus, &sky, &stack);
+                }
+                else if (stack.top == 8) break;
             }
         }
-        
-        else{
-            for (int j=0;stack.buf[j] != result_buf[i];j++){
-                if (stack.buf[j-1] == result_buf[i]) {
-                    pop(test_buf,&stack,i);
-                    break;
-                }
-                push(buf,&stack,stack.top+j);
+        else if (ground_buf[i-1] > ground_buf[i]){
+            if (stack.buf[stack.top-1] == ground_buf[i]){
+                pop(&plus_mainus, &test,&stack);
+            }
+            else {
+                printf("NO\n");
+                printf("%d-------------\n",i);
+                break;
             }
         }
+    }
+    for (int i=0; test.buf[i] != '\0';i++){
+        printf("%d ",test.buf[i]);
+    }
+    printf("\n");
+    for (int i=0;plus_mainus.buf[i]!='\0';i++){
+        printf("%c\n",plus_mainus.buf[i]);
     }
 }
 
 
-void push(int buf[], struct STACK* st,int j){
+void push(struct CHAR_STACK* pn, struct STACK *sky, struct STACK* st){
 
-    st->buf[st->top] = buf[j];
-    printf("+\n");
+    st->buf[st->top++] = sky->buf[sky->top++];
+    pn->buf[pn->top++] = '+';
+    pn->buf[pn->top] = '\0';
+
 }
-void pop(int test[], struct STACK* st,int i){
-
+void pop(struct CHAR_STACK* pn, struct STACK *test, struct STACK* st){
+    int i=0;
+    
     st->top--;
-    test[i] = st->buf[st->top];
-    st->buf[st->top] = 0;
-    printf("-\n");
 
+    test->buf[test->top++] = st->buf[st->top]; //test에 저장
+    
+    st->buf[st->top] = 0; //숫자 지우기
 
+    pn->buf[pn->top++] = '-'; //+-배열에 저장
+    pn->buf[pn->top] = '\0';
     
 }
