@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define MAXBUF 1000
+#define MAXBUF 100000
 
 struct STACK{
     int buf[MAXBUF];
@@ -13,17 +13,17 @@ struct CHAR_STACK{
 
 void push(struct CHAR_STACK*, struct STACK *, struct STACK*);
 void pop(struct CHAR_STACK*, struct STACK*, struct STACK*);
-void delete_arr(int sky[]);
 
 int main(){
 
-    int n;
+    int n, flag=0;
     int ground_buf[MAXBUF];
 
     struct STACK stack;
     struct STACK test;
     struct STACK sky;
     struct CHAR_STACK plus_mainus;
+
     stack.top = 0;
     test.top = 0;
     sky.top =0;
@@ -41,39 +41,35 @@ int main(){
         scanf("%d",&ground_buf[i]);
         ground_buf[i+1] = 0;
     }
-    push(&plus_mainus, &sky, &stack);
-    for (int i=0;i<n;i++){//4
 
-        if (ground_buf[i-1] < ground_buf[i]){
-            for (int j=0;sky.buf[j-1] != ground_buf[i];j++){
-                
-                if (stack.buf[stack.top-1] == ground_buf[i]){
-                    pop(&plus_mainus, &test,&stack);
-                }
-                else if(stack.top != 8) {
-                    push(&plus_mainus, &sky, &stack);
-                }
-                else if (stack.top == 8) break;
+    for (int i=0;i<n;i++){
+
+        for (int j=0;sky.buf[j] !=0;j++){
+            if (stack.buf[stack.top-1]> ground_buf[i]){
+                flag=1;
+                break;
             }
-        }
-        else if (ground_buf[i-1] > ground_buf[i]){
+            
+            if (stack.buf[stack.top-1] != ground_buf[i]){
+                push(&plus_mainus, &sky, &stack);
+            }
             if (stack.buf[stack.top-1] == ground_buf[i]){
                 pop(&plus_mainus, &test,&stack);
-            }
-            else {
-                printf("NO\n");
-                printf("%d-------------\n",i);
                 break;
             }
         }
+        if (flag==1){
+            printf("NO\n");
+            break;
+        }
     }
-    for (int i=0; test.buf[i] != '\0';i++){
-        printf("%d ",test.buf[i]);
+
+    if (flag==0){
+        for (int i=0;plus_mainus.buf[i] !='\0';i++){
+            printf("%c\n",plus_mainus.buf[i]);
+        }
     }
-    printf("\n");
-    for (int i=0;plus_mainus.buf[i]!='\0';i++){
-        printf("%c\n",plus_mainus.buf[i]);
-    }
+
 }
 
 
@@ -85,11 +81,8 @@ void push(struct CHAR_STACK* pn, struct STACK *sky, struct STACK* st){
 
 }
 void pop(struct CHAR_STACK* pn, struct STACK *test, struct STACK* st){
-    int i=0;
-    
-    st->top--;
 
-    test->buf[test->top++] = st->buf[st->top]; //test에 저장
+    test->buf[test->top++] = st->buf[--st->top]; //test에 저장
     
     st->buf[st->top] = 0; //숫자 지우기
 
