@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define MAXBUF 100000
+#define MAXBUF 100001
 
 struct STACK{
     int buf[MAXBUF];
@@ -67,6 +67,7 @@ int main(){
     if (flag==0){
         for (int i=0;plus_mainus.buf[i] !='\0';i++){
             printf("%c\n",plus_mainus.buf[i]);
+            //if (plus_mainus.buf[i] !='\0') printf("\n");
         }
     }
 

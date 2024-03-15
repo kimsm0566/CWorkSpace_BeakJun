@@ -1,2 +1,4 @@
-_buf, &stack, cnt);
-                if (sky_buf[j] != gro
+           if (stack.buf[stack.top-1]> ground_buf[i]){
+                flag=1;
+                break;
+            }

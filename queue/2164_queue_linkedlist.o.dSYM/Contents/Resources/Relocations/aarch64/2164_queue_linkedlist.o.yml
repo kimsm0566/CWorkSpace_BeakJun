@@ -1,0 +1,10 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/kimseonmin/CWorkSpace_BeakJun/queue/2164_queue_linkedlist.o'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003D60, symSize: 0x100 }
+  - { offsetInCU: 0x6F, offset: 0x6F, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003D60, symSize: 0x100 }
+  - { offsetInCU: 0xDD, offset: 0xDD, size: 0x8, addend: 0x0, symName: __Z13Make_LastNodePP4NODEi, symObjAddr: 0x100, symBinAddr: 0x100003E60, symSize: 0x84 }
+  - { offsetInCU: 0x12F, offset: 0x12F, size: 0x8, addend: 0x0, symName: __Z15deleteFirstNodePP4NODE, symObjAddr: 0x184, symBinAddr: 0x100003EE4, symSize: 0x50 }
+  - { offsetInCU: 0x173, offset: 0x173, size: 0x8, addend: 0x0, symName: __Z11lastTofirstPP4NODE, symObjAddr: 0x1D4, symBinAddr: 0x100003F34, symSize: 0x40 }
+...
