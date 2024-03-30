@@ -83,12 +83,8 @@ void pop(struct QUEUE* queue){
         printf("-1\n");
     }
 
-    else {
-        queue->floor++;
-        printf("%d\n",queue->key[queue->floor]);
-        queue->key[queue->floor] = 0;
-    }
-
+    queue->key[queue->floor] = 0;
+    queue->floor++;
 }
 void size(struct QUEUE* queue){
     if (empty(queue) == 1) {
@@ -99,7 +95,7 @@ void size(struct QUEUE* queue){
 }
 int empty(struct QUEUE* queue){
 
-    if (queue->floor >= queue->rear) return 1;
+    if (queue->floor > queue->rear) return 1;
     else return 0;
 
 }

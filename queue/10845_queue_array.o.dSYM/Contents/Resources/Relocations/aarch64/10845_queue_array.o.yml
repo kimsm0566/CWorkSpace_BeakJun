@@ -1,0 +1,13 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/kimseonmin/CWorkSpace_BeakJun/queue/10845_queue_array.o'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003A2C, symSize: 0x254 }
+  - { offsetInCU: 0x41, offset: 0x41, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003A2C, symSize: 0x254 }
+  - { offsetInCU: 0xBD, offset: 0xBD, size: 0x8, addend: 0x0, symName: __Z4pushP5QUEUEi, symObjAddr: 0x254, symBinAddr: 0x100003C80, symSize: 0x44 }
+  - { offsetInCU: 0xF3, offset: 0xF3, size: 0x8, addend: 0x0, symName: __Z3popP5QUEUE, symObjAddr: 0x298, symBinAddr: 0x100003CC4, symSize: 0x6C }
+  - { offsetInCU: 0x11B, offset: 0x11B, size: 0x8, addend: 0x0, symName: __Z4sizeP5QUEUE, symObjAddr: 0x304, symBinAddr: 0x100003D30, symSize: 0x78 }
+  - { offsetInCU: 0x143, offset: 0x143, size: 0x8, addend: 0x0, symName: __Z5emptyP5QUEUE, symObjAddr: 0x37C, symBinAddr: 0x100003DA8, symSize: 0x4C }
+  - { offsetInCU: 0x16F, offset: 0x16F, size: 0x8, addend: 0x0, symName: __Z5frontP5QUEUE, symObjAddr: 0x3C8, symBinAddr: 0x100003DF4, symSize: 0xC4 }
+  - { offsetInCU: 0x197, offset: 0x197, size: 0x8, addend: 0x0, symName: __Z4backP5QUEUE, symObjAddr: 0x48C, symBinAddr: 0x100003EB8, symSize: 0x78 }
+...

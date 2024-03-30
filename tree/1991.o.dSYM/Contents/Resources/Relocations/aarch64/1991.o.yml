@@ -1,0 +1,10 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/kimseonmin/CWorkSpace_BeakJun/tree/1991.o'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: __Z7newNodec, symObjAddr: 0x0, symBinAddr: 0x100003CA4, symSize: 0x48 }
+  - { offsetInCU: 0x74, offset: 0x74, size: 0x8, addend: 0x0, symName: __Z7newNodec, symObjAddr: 0x0, symBinAddr: 0x100003CA4, symSize: 0x48 }
+  - { offsetInCU: 0xAE, offset: 0xAE, size: 0x8, addend: 0x0, symName: __Z7inorderP4Node, symObjAddr: 0x48, symBinAddr: 0x100003CEC, symSize: 0x6C }
+  - { offsetInCU: 0xD6, offset: 0xD6, size: 0x8, addend: 0x0, symName: __Z17inorder_find_dataP4Nodeccc, symObjAddr: 0xB4, symBinAddr: 0x100003D58, symSize: 0xF0 }
+  - { offsetInCU: 0x160, offset: 0x160, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x1A4, symBinAddr: 0x100003E48, symSize: 0x10C }
+...
